@@ -26,7 +26,7 @@ class DadosAgendamentoScreen extends StatelessWidget {
               'Dados de agendamento',
               style: TextStyle(
                 fontSize: 24,
-                color: Color(0xfff4f6ff), // Cor do texto #f4f6ff
+                color: Color(0xfff4f6ff),
               ),
             ),
             SizedBox(height: 20),
@@ -37,8 +37,8 @@ class DadosAgendamentoScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Color(0xfff4f6ff), // Cor do fundo #f4f6ff
-                  borderRadius: BorderRadius.circular(16), // Bordas arredondadas
+                  color: Color(0xfff4f6ff),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,7 +135,6 @@ class DadosAgendamentoScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(height: 20),
 
             // Botões Confirmar e Cancelar
@@ -149,9 +148,9 @@ class DadosAgendamentoScreen extends StatelessWidget {
                       // Ação de confirmar
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green, // Cor do botão Confirmar
+                      backgroundColor: Colors.green,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12), // Bordas arredondadas
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                     ),
@@ -165,12 +164,13 @@ class DadosAgendamentoScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // Ação de cancelar
+                      // Volta para a tela anterior ao cancelar
+                      Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red, // Cor do botão Cancelar
+                      backgroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12), // Bordas arredondadas
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                     ),
@@ -195,9 +195,9 @@ class DadosAgendamentoScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.pets, color: Color(0xfff4f6ff), size: 30),
-                    SizedBox(width: 10),  // Espaço entre as pegadas
+                    SizedBox(width: 10),
                     Icon(Icons.pets, color: Color(0xfff4f6ff), size: 24),
-                    SizedBox(width: 10),  // Espaço entre as pegadas
+                    SizedBox(width: 10),
                     Icon(Icons.pets, color: Color(0xfff4f6ff), size: 18),
                   ],
                 ),

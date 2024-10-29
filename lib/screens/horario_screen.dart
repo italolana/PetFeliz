@@ -46,7 +46,8 @@ class HorarioScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return ElevatedButton(
                       onPressed: () {
-                        // Ação ao selecionar um horário
+                        // Navega para a tela de dados do agendamento ao selecionar o horário
+                        Navigator.pushNamed(context, '/dados_agendamento');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xfff4f6ff), // Cor do botão #f4f6ff
@@ -58,7 +59,7 @@ class HorarioScreen extends StatelessWidget {
                         elevation: 5, // Sombra para destacar o botão
                       ),
                       child: Text(
-                        '08:00',
+                        '08:00', // Exemplo de horário
                         style: TextStyle(
                           fontSize: 16,  // Tamanho da fonte ajustado
                           fontWeight: FontWeight.bold,

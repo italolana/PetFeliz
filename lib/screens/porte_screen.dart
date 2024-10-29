@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 
-class PorteScreen extends StatelessWidget {
+class PorteScreen extends StatefulWidget {
+  @override
+  _PorteScreenState createState() => _PorteScreenState();
+}
+
+class _PorteScreenState extends State<PorteScreen> {
+  String? _selectedPorte; // Variável para armazenar o porte selecionado
+
+  // Função para atualizar o porte e navegar para a tela de horário
+  void _onPorteSelected(String porte) {
+    setState(() {
+      _selectedPorte = porte;
+    });
+    Navigator.pushNamed(context, '/horario'); // Navega para a tela de horário
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff5271ff), // Cor de fundo azul
+      backgroundColor: Color(0xff5271ff),
       body: SafeArea(
         child: Column(
           children: [
-            // Adiciona um espaço no topo para centralizar melhor os elementos
             Spacer(),
 
-            // Logo e título "Pet Feliz"
             Text(
               'Pet Feliz',
               style: TextStyle(
@@ -22,7 +35,6 @@ class PorteScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
 
-            // Título "Agendamento"
             Text(
               'Agendamento',
               style: TextStyle(
@@ -32,7 +44,6 @@ class PorteScreen extends StatelessWidget {
             ),
             SizedBox(height: 40),
 
-            // Container com as opções de porte
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Container(
@@ -44,67 +55,57 @@ class PorteScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     // Opção Porte Pequeno
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: false,
-                          onChanged: (bool? value) {},
-                          activeColor: Color(0xff5271ff),
+                    RadioListTile(
+                      title: Text(
+                        'Porte pequeno',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Color(0xff5271ff),
                         ),
-                        Text(
-                          'Porte pequeno',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xff5271ff),
-                          ),
-                        ),
-                      ],
+                      ),
+                      value: 'Porte pequeno',
+                      groupValue: _selectedPorte,
+                      onChanged: (String? value) {
+                        _onPorteSelected(value!); // Chama a função ao selecionar
+                      },
                     ),
-
                     // Opção Porte Médio
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: false,
-                          onChanged: (bool? value) {},
-                          activeColor: Color(0xff5271ff),
+                    RadioListTile(
+                      title: Text(
+                        'Porte Médio',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Color(0xff5271ff),
                         ),
-                        Text(
-                          'Porte Medio',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xff5271ff),
-                          ),
-                        ),
-                      ],
+                      ),
+                      value: 'Porte Médio',
+                      groupValue: _selectedPorte,
+                      onChanged: (String? value) {
+                        _onPorteSelected(value!);
+                      },
                     ),
-
                     // Opção Porte Grande
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: false,
-                          onChanged: (bool? value) {},
-                          activeColor: Color(0xff5271ff),
+                    RadioListTile(
+                      title: Text(
+                        'Porte Grande',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Color(0xff5271ff),
                         ),
-                        Text(
-                          'Porte grande',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xff5271ff),
-                          ),
-                        ),
-                      ],
+                      ),
+                      value: 'Porte Grande',
+                      groupValue: _selectedPorte,
+                      onChanged: (String? value) {
+                        _onPorteSelected(value!);
+                      },
                     ),
                   ],
                 ),
               ),
             ),
 
-            // Adiciona um espaço no final para centralizar melhor os elementos
             Spacer(),
 
-            // Pegadas decorativas na parte inferior
             Padding(
               padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
               child: Align(
